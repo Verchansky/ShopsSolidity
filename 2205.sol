@@ -57,17 +57,17 @@ contract ContractShops {
         users[0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9] = 
             User("DDD", "dimon", 0x3b453794f074c43f21713fe98eaccb2728a71bd4584e5d5958e7e73546e02603, 2);
         
-        users[0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9] = 
+        users[0xf2bfDEaeC58d2046664203679A4290607Ba57dCF] = 
             User("AAA", "alex", 0x3b453794f074c43f21713fe98eaccb2728a71bd4584e5d5958e7e73546e02603, 1);
 
-        users[0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9] = 
+        users[0xf1f406f26A25a9EB9c697B22eb27C181d975Aa16] = 
             User("RRR", "rus", 0x3b453794f074c43f21713fe98eaccb2728a71bd4584e5d5958e7e73546e02603, 0);
 
             // 0xdD870fA1b7C4700F2BD7f44238821C26f7392148
 
 
         shops.push();
-        shops[shops.length-1].addressShop = 0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9;
+        shops[shops.length-1].addressShop = 0x922e39F88acf546Fc03176a5A5B7ED828a37DfAB;
         shops[shops.length-1].password = 0x3b453794f074c43f21713fe98eaccb2728a71bd4584e5d5958e7e73546e02603;
         shops[shops.length-1].nameShop = "Shop 1";
         shops[shops.length-1].city = "Moscow";
@@ -240,7 +240,12 @@ contract ContractShops {
     {
         return shops[_idShop].workers;
     }
-
+    
+    //Список всез заявок
+    function returnReq() public view returns(listUpDown[] memory)
+    {
+        return Requests;
+    }
         
 
 

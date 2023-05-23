@@ -1,48 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="entry">
-        <div class="Autorize">
-            <h1>Авторизация</h1>
-            <label for="">Логин</label>
-            <input type="text" class = "loginInputEntry">
+      <div class="Autorize">
+        <h1>Авторизация</h1>
+        <label for="">Логин</label>
+        <input
+          type="text"
+          class="loginInputEntry"
+          value="0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9"
+        />
 
-            <label for="">Пароль</label>
-            <input type="text" class = "PassInputEntry">
+        <label for="">Пароль</label>
+        <input type="text" class="PassInputEntry" value="123" />
 
-            <div class="btnsEntry">
-                <button class = "btnEntry">Войти</button>
-                <button class = "btnRegSwitch">Регистрация</button>
-            </div>
+        <div class="btnsEntry">
+          <button class="btnEntry">Войти</button>
+          <button class="btnRegSwitch">Регистрация</button>
         </div>
+      </div>
 
-        <div class="regists">
-            <h1>Регистарция</h1>
-            <label for="">Логин</label>
-            <input type="text" class = "loginInputReg">
+      <div class="regists">
+        <h1>Регистарция</h1>
+        <label for="">Логин</label>
+        <input type="text" class="loginInputReg" />
 
-            <label for="">Пароль</label>
-            <input type="text" class = "PassInputReg">
+        <label for="">Фио</label>
+        <input type="text" class="FioInputReg" />
 
-            <div class="btnsEntry">
-                <button class = "btnBack">Назад</button>
-                <button class = "btnReg">Регистрация</button>
-            </div>
+        <label for="">Пароль</label>
+        <input type="text" class="PassInputReg" />
+
+        <div class="btnsEntry">
+          <button class="btnBack">Назад</button>
+          <button class="btnReg">Регистрация</button>
         </div>
-
+      </div>
     </div>
 
+    <div class="adminPage">
+      <div class="container">
+        <header class="header">
+          <h1>Администратор</h1>
 
+          <div class="infoDiv">
+            <p class="loginHeader">
+              0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9
+            </p>
+            <p class="balance">0 ETH</p>
+          </div>
+        </header>
+
+        <main class="main">
+          <div class="btns">
+            <button id="addAdmin">Добавить Администратор</button>
+            <button id="listReq">Список заявок</button>
+            <button id="ListShops">Список магазинов</button>
+            <button id="CreateShop">Создать магазин</button>
+          </div>
+
+          <div class="workFolder">
+            <div class="addAdminFolder">
+              <label for="">Адрес</label>
+              <input type="text" class="addresInput" />
+
+              <label for="">ФИО</label>
+              <input type="text" class="FIOInput" />
+
+              <label for="">Логин</label>
+              <input type="text" class="LoginInput" />
+
+              <label for="">Пароль</label>
+              <input type="text" class="PasswordInput" />
+
+              <button id="addAdminBtn">Создать администратора</button>
+            </div>
+
+            <div class="listRequests">
+              <div class="headerList">
+                <p>Номер</p>
+                <p>Пользователь</p>
+                <p>Тип заявки</p>
+                <p>Номер магазина</p>
+              </div>
+            </div>
+
+            <div class="listShopsFolder">
+              <div class="listShopsFolderHeader">
+                <p>Номер</p>
+                <p>Адресс магазина</p>
+                <p>Название магазина</p>
+                <p>Город</p>
+              </div>
+            </div>
+
+            <div class="CreateShopFolder">
+              <label for="">Адрес</label>
+              <input type="text" class="addresShopInput" />
+
+              <label for="">Имя магазина</label>
+              <input type="text" class="NameShopInput" />
+
+              <label for="">Город</label>
+              <input type="text" class="CityInput" />
+
+              <label for="">Пароль</label>
+              <input type="text" class="InputPassworShop" />
+
+              <button id="addShopBtn">Создать магазин</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
 
     <script src="./scripts/web3.min.js"></script>
     <script src="./scripts/script.js"></script>
-</body>
+  </body>
 </html>

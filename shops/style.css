@@ -28,10 +28,17 @@ a{
     color: inherit;
 }
 
+.container
+{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 10px;
+}
+
 .entry
 {
-    margin-left: 620px;
-    margin-top: 200px;
+    padding-left: 550px;
+    padding-top: 220px;
 }
 
 .Autorize
@@ -46,4 +53,130 @@ a{
     display: none;
     width: 200px;
     height: 200px;
+}
+
+.adminPage
+{
+    display: none;
+}
+
+.header
+{
+    max-width: auto;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
+.infoDiv
+{
+    display:flex;
+    gap: 40px;
+}
+
+.main
+{
+    margin: 0 auto;
+}
+
+
+.btns
+{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.btns button
+{
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.workFolder
+{
+    border: 1px solid black;
+    height: 400px;
+}
+
+.addAdminFolder
+{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+#addAdmin
+{
+    font-weight: bold;
+    
+}
+
+
+
+
+.listRequests
+{
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listShopsFolder
+{
+    display: none;
+}
+
+
+.headerList
+{
+    padding: 10px;
+    display: flex;
+    gap: 150px;
+}
+
+.Request
+{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.listShopsFolder
+{
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listShopsFolderHeader
+{   
+    padding: 10px;
+    display: flex;
+    gap: 160px;
+}
+
+.Shops
+{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+
+.CreateShopFolder
+{
+    display: none;
+    width: 200px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
 }
