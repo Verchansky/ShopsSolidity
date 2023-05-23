@@ -1,0 +1,49 @@
+html
+{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+
+}
+
+*, * ::after, *::before
+{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+
+    height: 100%;
+    background-color: rgb(241, 241, 241);
+}
+
+ul
+{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.entry
+{
+    margin-left: 620px;
+    margin-top: 200px;
+}
+
+.Autorize
+{
+    width: 200px;
+    height: 200px;
+}
+
+
+.regists
+{
+    display: none;
+    width: 200px;
+    height: 200px;
+}
