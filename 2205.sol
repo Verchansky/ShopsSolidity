@@ -212,7 +212,7 @@ contract ContractShops {
     //Выставление оценки работы магазина
     function AddRevie(uint _idShop, uint _ozenka, string memory _message) public
     {   
-        require(users[msg.sender].role == 0, "This is not for you");
+        // require(users[msg.sender].role == 1, "This is not for you");
         require(_idShop <= shops.length-1, "Uncorect value");
 
         // address User;
@@ -226,7 +226,7 @@ contract ContractShops {
     }
 
     //Ответ на отзыв
-    function create_otvet (uint _rating, string memory _message, uint _idShop, uint _comId) public {
+    function create_otvet(uint _rating, string memory _message, uint _idShop, uint _comId) public {
 
         // address User;
         // uint rating; //Оценка комментария 1 - +  0 - +
@@ -245,6 +245,12 @@ contract ContractShops {
     function returnReq() public view returns(listUpDown[] memory)
     {
         return Requests;
+    }
+
+    //Список коментариев
+    function returnComments(uint _idShop) public view returns(BookReviews[] memory)
+    {
+        return(shops[_idShop].coment);
     }
         
 

@@ -15,7 +15,7 @@ html
 html, body{
 
     height: 100%;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(241, 242, 252);
 }
 
 ul
@@ -37,8 +37,9 @@ a{
 
 .entry
 {
-    padding-left: 550px;
-    padding-top: 220px;
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
 }
 
 .Autorize
@@ -63,12 +64,15 @@ a{
 .header
 {
     max-width: auto;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     margin-bottom: 100px;
+    background-color: rgb(229, 229, 255);
+    box-shadow: 0px 0px 20px rgb(138, 138, 138);
+    padding: 20px 100px;
 }
 
 .infoDiv
@@ -96,22 +100,55 @@ a{
     border: none;
     font-size: 16px;
     cursor: pointer;
+    background-color: rgb(241, 242, 252);
+
 }
 
 .workFolder
 {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 400px;
 }
 
 .addAdminFolder
 {
-    width: 200px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px;
+    margin: 0px auto;
+    text-align: center;
 }
+
+.addAdminFolder input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.addAdminFolder button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.addAdminFolder button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+
+}
+
+
+
 
 #addAdmin
 {
@@ -164,6 +201,8 @@ a{
     gap: 160px;
 }
 
+
+
 .Shops
 {
     display: flex;
@@ -175,8 +214,289 @@ a{
 .CreateShopFolder
 {
     display: none;
-    width: 200px;
+    width: 500px;
     flex-direction: column;
     gap: 10px;
     padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+
 }
+
+
+.CreateShopFolder input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.CreateShopFolder button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+
+.CreateShopFolder button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+}
+
+
+/* Saller page */
+.SallerPage
+{
+    display: none;
+}
+
+.btnsSall
+{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.btnsSall button
+{
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(241, 242, 252);
+}
+
+.addRequestFolder
+{
+    display: none;
+    width: 500px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.addRequestFolder input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.addRequestFolder button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 10px;
+
+    transition: all 0.3s;
+}
+
+
+.addRequestFolder button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+}
+
+
+.addComentFolder
+{
+    display: none;
+    width: 500px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.addComentFolder input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.addComentFolder button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 10px;
+
+    transition: all 0.3s;
+}
+
+
+.addComentFolder button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+}
+
+
+
+
+.BuyerPage
+{
+    display: none;
+}
+
+.btnsBuy
+{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.addRequestFolderUp
+{
+    display: none;
+}
+
+.addComentFolderBuy
+{
+    display: none;
+    width: 500px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.addComentFolderBuy input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.addComentFolderBuy button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 10px;
+
+    transition: all 0.3s;
+}
+
+
+.addComentFolderBuy button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+}
+
+.btnsBuy button
+{
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(241, 242, 252);
+}
+
+.addRequestFolderUp
+{
+    display: none;
+    width: 500px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.addRequestFolderUp input
+{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgb(104, 104, 104);
+}
+
+.addRequestFolderUp button
+{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 10px;
+
+    transition: all 0.3s;
+}
+
+
+.addRequestFolderUp button:hover
+{
+    transform: scale(1.03);
+    background-color: rgb(241, 242, 252);
+}
+
+.addRequestBtn button
+{
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(241, 242, 252);
+}
+
+/*  */
+
+
+.shopPage
+{
+    display: none;
+}
+
+.btnShop
+{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.btnShop button
+{
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(241, 242, 252);
+}
+
+.listCommFolder
+{
+    display: none;
+}
+
+.ListWorkersFolder
+{
+    display: none;
+}
+
+

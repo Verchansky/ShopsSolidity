@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+
     <div class="entry">
       <div class="Autorize">
         <h1>Авторизация</h1>
@@ -15,8 +16,7 @@
         <input
           type="text"
           class="loginInputEntry"
-          value="0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9"
-        />
+          value="0x922e39F88acf546Fc03176a5A5B7ED828a37DfAB"/>
 
         <label for="">Пароль</label>
         <input type="text" class="PassInputEntry" value="123" />
@@ -46,80 +46,200 @@
     </div>
 
     <div class="adminPage">
-      <div class="container">
         <header class="header">
           <h1>Администратор</h1>
 
           <div class="infoDiv">
             <p class="loginHeader">
-              0xbe0cA7a2910519E0E8A6E11B5A39D3A13B262fa9
             </p>
             <p class="balance">0 ETH</p>
           </div>
         </header>
 
         <main class="main">
-          <div class="btns">
-            <button id="addAdmin">Добавить Администратор</button>
-            <button id="listReq">Список заявок</button>
-            <button id="ListShops">Список магазинов</button>
-            <button id="CreateShop">Создать магазин</button>
+          <div class="container">
+            <div class="btns">
+              <button id="addAdmin">Добавить Администратор</button>
+              <button id="listReq">Список заявок</button>
+              <button id="ListShops">Список магазинов</button>
+              <button id="CreateShop">Создать магазин</button>
+            </div>
+  
+            <div class="workFolder">
+              <div class="addAdminFolder">
+                <label for="">Адрес</label>
+                <input type="text" class="addresInput" />
+  
+                <label for="">ФИО</label>
+                <input type="text" class="FIOInput" />
+  
+                <label for="">Логин</label>
+                <input type="text" class="LoginInput" />
+  
+                <label for="">Пароль</label>
+                <input type="text" class="PasswordInput" />
+  
+                <button id="addAdminBtn">Создать администратора</button>
+              </div>
+  
+              <div class="listRequests">
+                <div class="headerList">
+                  <p>Номер</p>
+                  <p>Пользователь</p>
+                  <p>Тип заявки</p>
+                  <p>Номер магазина</p>
+                </div>
+              </div>
+  
+              <div class="listShopsFolder">
+                <div class="listShopsFolderHeader">
+                  <p>Номер</p>
+                  <p>Адресс магазина</p>
+                  <p>Название магазина</p>
+                  <p>Город</p>
+                </div>
+              </div>
+  
+              <div class="CreateShopFolder">
+                <label for="">Адрес</label>
+                <input type="text" class="addresShopInput" />
+  
+                <label for="">Имя магазина</label>
+                <input type="text" class="NameShopInput" />
+  
+                <label for="">Город</label>
+                <input type="text" class="CityInput" />
+  
+                <label for="">Пароль</label>
+                <input type="text" class="InputPassworShop" />
+  
+                <button id="addShopBtn">Создать магазин</button>
+              </div>
+            </div>
+          </main>
+    </div>
+
+    <div class="SallerPage">
+      <header class="header">
+        <h1>Продавец</h1>
+
+        <div class="infoDiv">
+          <p class="loginHeaderSall">
+          </p>
+          <p class="balanceSall">0 ETH</p>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="container">
+          <div class="btnsSall">
+            <button id="addRequestDown">Создать заявку</button>
+            <button id="addComent">Добавить комментарий</button>
           </div>
 
           <div class="workFolder">
-            <div class="addAdminFolder">
-              <label for="">Адрес</label>
-              <input type="text" class="addresInput" />
+            <div class="addRequestFolder">
+              <label for="">Выберите магазин</label>
+              <select name="" id="NameShop"></select>
 
-              <label for="">ФИО</label>
-              <input type="text" class="FIOInput" />
+              <label for="">Тип заявки</label>
+              <input type="text" disabled value="Понижение">
 
-              <label for="">Логин</label>
-              <input type="text" class="LoginInput" />
+              <button class = "addRequestBtn">Создать заявку</button>
 
-              <label for="">Пароль</label>
-              <input type="text" class="PasswordInput" />
-
-              <button id="addAdminBtn">Создать администратора</button>
             </div>
 
-            <div class="listRequests">
-              <div class="headerList">
-                <p>Номер</p>
-                <p>Пользователь</p>
-                <p>Тип заявки</p>
-                <p>Номер магазина</p>
-              </div>
-            </div>
+            <div class="addComentFolder">
+              <label for="">Выберите магазин</label>
+              <select name="" id="NameShopComent"></select>
 
-            <div class="listShopsFolder">
-              <div class="listShopsFolderHeader">
-                <p>Номер</p>
-                <p>Адресс магазина</p>
-                <p>Название магазина</p>
-                <p>Город</p>
-              </div>
-            </div>
+              <label for="">Оставьте комментарий</label>
+              <input type="text"id="messageComent">
 
-            <div class="CreateShopFolder">
-              <label for="">Адрес</label>
-              <input type="text" class="addresShopInput" />
+              <label for="">Оценка</label>
+              <input type="number" id="Ozenka" min="1" max="10">
 
-              <label for="">Имя магазина</label>
-              <input type="text" class="NameShopInput" />
-
-              <label for="">Город</label>
-              <input type="text" class="CityInput" />
-
-              <label for="">Пароль</label>
-              <input type="text" class="InputPassworShop" />
-
-              <button id="addShopBtn">Создать магазин</button>
+              <button class = "addComentFolderBtn">Создать комментарий</button>
             </div>
           </div>
         </main>
-      </div>
     </div>
+
+    <div class="BuyerPage">
+      <header class="header">
+        <h1>Покупатель</h1>
+
+        <div class="infoDiv">
+          <p class="loginHeaderBuy">
+          </p>
+          <p class="balanceBuy">0 ETH</p>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="container">
+          <div class="btnsBuy">
+            <button id="addRequestUp">Создать заявку</button>
+            <button id="addComentBuy">Добавить комментарий</button>
+          </div>
+
+          <div class="workFolder">
+            <div class="addRequestFolderUp">
+              <label for="">Выберите магазин</label>
+              <select name="" id="NameShopBuyer"></select>
+
+              <label for="">Тип заявки</label>
+              <input type="text" disabled value="Повышение">
+
+              <button class = "addRequestBtnUp">Создать заявку</button>
+
+            </div>
+
+            <div class="addComentFolderBuy">
+              <label for="">Выберите магазин</label>
+              <select name="" id="NameShopComentBuyer"></select>
+
+              <label for="">Оставьте комментарий</label>
+              <input type="text"id="messageComentBuyer">
+
+              <label for="">Оценка</label>
+              <input type="number" id="OzenkaBuyer" min="1" max="10">
+
+              <button class = "addComentFolderBtnBuy">Создать комментарий</button>
+            </div>
+          </div>
+        </main>
+    </div>
+    
+
+    <div class="shopPage">
+      <header class="header">
+        <h1>Магазин</h1>
+
+        <div class="infoDiv">
+          <p class="loginHeaderShop">
+          </p>
+          <p class="balanceShop">0 ETH</p>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="container">
+          <div class="btnShop">
+            <button id="ListComm">Список комментариев</button>
+            <button id="ListWorkers">Список работников</button>
+          </div>
+
+          <div class="workFolder">
+
+            <div class="listCommFolder">1</div>
+
+            <div class="ListWorkersFolder">2</div>
+          </div>
+        </main>
+    </div>
+          
+
 
     <script src="./scripts/web3.min.js"></script>
     <script src="./scripts/script.js"></script>

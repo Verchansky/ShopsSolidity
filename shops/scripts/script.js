@@ -1,5 +1,5 @@
 // Подключение web3//////////////////////////////////////////////////////////////////////////////////////////////////////
-const addressContract = "0x2688D8316378CD318599B2e1Aa86027b9327fda6";
+const addressContract = "0xAEa128C84B9B4290db9AC9e5e8e0AC3a192e5111";
 const abi = [
 	{
 		"inputs": [
@@ -312,6 +312,64 @@ const abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_idShop",
+				"type": "uint256"
+			}
+		],
+		"name": "returnComments",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "User",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ozenka",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "User",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "rating",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ContractShops.Otvet[]",
+						"name": "otvets",
+						"type": "tuple[]"
+					}
+				],
+				"internalType": "struct ContractShops.BookReviews[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "returnReq",
 		"outputs": [
@@ -489,7 +547,7 @@ async function entryFunction()
 	let flag = false;
 
 	//Если пользователь входит как магазин
-	if(result[2] == "0")
+	if(result[0] == "")
 	{
 		for(let i = 0; i < shops.length; i++)
 		{
@@ -501,6 +559,11 @@ async function entryFunction()
 					flag = true;
 
 					document.querySelector(".entry").style = "display: none"
+					document.querySelector(".shopPage").style = "display: block"
+
+					document.querySelector(".loginHeaderShop").innerHTML = inputValue.value;
+					document.querySelector(".balanceShop").innerHTML = await web3.eth.getBalance(inputValue.value) / 10 ** 18 + "ETH"
+					curentAccount = inputValue.value;
 
 				}		
 			}
@@ -520,6 +583,22 @@ async function entryFunction()
 			document.querySelector(".adminPage").style = "display: block";
 			document.querySelector(".loginHeader").innerHTML = inputValue.value;
 			document.querySelector(".balance").innerHTML = await web3.eth.getBalance(inputValue.value) / 10 ** 18 + "ETH"
+			curentAccount = inputValue.value;
+		}
+
+		if(result[3] == 1)
+		{
+			document.querySelector(".SallerPage").style = "display: block";
+			document.querySelector(".loginHeaderSall").innerHTML = inputValue.value;
+			document.querySelector(".balanceSall").innerHTML = await web3.eth.getBalance(inputValue.value) / 10 ** 18 + "ETH"
+			curentAccount = inputValue.value;
+		}
+
+		if(result[3] == 0)
+		{
+			document.querySelector(".BuyerPage").style = "display: block";
+			document.querySelector(".loginHeaderBuy").innerHTML = inputValue.value;
+			document.querySelector(".balanceBuy").innerHTML = await web3.eth.getBalance(inputValue.value) / 10 ** 18 + "ETH"
 			curentAccount = inputValue.value;
 		}
 
@@ -830,3 +909,224 @@ async function addShopFunc()
 	CityInput.value = "";
 	InputPassworShop.value = "";
 }
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////Saller///////////////////////////////////////////////////////////////////////////////////////
+document.querySelector("#addRequestDown").addEventListener("click", async () =>
+{	
+	document.querySelector("#addComent").style = "font-weight: normal";
+	document.querySelector("#addRequestDown").style = "font-weight: bold";
+
+	document.querySelector(".addRequestFolder").style = "display: flex";
+	document.querySelector(".addComentFolder").style = "display: none";
+
+	createShops();
+
+})
+
+document.querySelector("#addComent").addEventListener("click", async () =>
+{	
+	document.querySelector("#addComent").style = "font-weight: bold";
+	document.querySelector("#addRequestDown").style = "font-weight: normal";
+
+	document.querySelector(".addRequestFolder").style = "display: none";
+	document.querySelector(".addComentFolder").style = "display: flex";
+
+	createShops2();
+
+})
+
+
+async function createShops()
+{
+	let select = document.querySelector("#NameShop");
+
+	for(let i = 0; i < shops.length; i++)
+	{
+		let option = document.createElement("option")
+		option.value = i;
+		option.innerHTML = shops[i].nameShop;
+		select.append(option);
+	}
+}
+
+async function createShops2()
+{
+	let select = document.querySelector("#NameShopComent");
+
+	for(let i = 0; i < shops.length; i++)
+	{
+		let option = document.createElement("option")
+		option.value = i;
+		option.innerHTML = shops[i].nameShop;
+		select.append(option);
+	}
+}
+
+async function createShops3()
+{
+	let select = document.querySelector("#NameShopBuyer");
+
+	for(let i = 0; i < shops.length; i++)
+	{
+		let option = document.createElement("option")
+		option.value = i;
+		option.innerHTML = shops[i].nameShop;
+		select.append(option);
+	}
+}
+
+async function createShops4()
+{
+	let select = document.querySelector("#NameShopComentBuyer");
+
+	for(let i = 0; i < shops.length; i++)
+	{
+		let option = document.createElement("option")
+		option.value = i;
+		option.innerHTML = shops[i].nameShop;
+		select.append(option);
+	}
+}
+
+
+///////////////////////////////////////////////////////////////Заявка/////////////////////////////
+let addRequestDownbtn = document.querySelector(".addRequestBtn");
+addRequestDownbtn.addEventListener("click", createDownRole);
+
+async function createDownRole()
+{
+	let idShopInput = document.querySelector("#NameShop");
+
+
+	let request = await myContract.methods.createDownRole(idShopInput.value).send({
+		gas: 200000,
+		from: curentAccount,
+	})
+
+	alert("Заявка успешно принята!")
+	idShopInput.value = "";
+}
+
+
+
+/////////////////////////////////////////////////////////////Комментарии
+let addComentFolderBtn = document.querySelector(".addComentFolderBtn");
+addComentFolderBtn.addEventListener("click", createComment)
+
+async function createComment()
+{
+	let NameShopComent = document.querySelector("#NameShopComent");
+	let messageComent = document.querySelector("#messageComent");
+	let Ozenka = document.querySelector("#Ozenka");
+
+	console.log(typeof(messageComent.value))
+
+	let result = myContract.methods.AddRevie(NameShopComent.value, Ozenka.value, messageComent.value).send({
+		gas: 200000,
+		from: curentAccount,
+	});
+
+	alert("Коментарий добавлен!");
+	NameShopComent.value = "";
+	messageComent.value = "";
+	Ozenka.value = "";
+
+}
+
+// ///////////////////////////////////////////////////////////////BUYER//////////////////////////////
+document.querySelector("#addRequestUp").addEventListener("click", async () =>
+{	
+	document.querySelector("#addRequestUp").style = "font-weight: bold";
+	document.querySelector("#addComentBuy").style = "font-weight: normal";
+
+	document.querySelector(".addRequestFolderUp").style = "display: flex";
+	document.querySelector(".addComentFolderBuy").style = "display: none";
+
+	createShops3();
+
+})
+
+document.querySelector("#addComentBuy").addEventListener("click", async () =>
+{	
+	document.querySelector("#addRequestUp").style = "font-weight: normal";
+	document.querySelector("#addComentBuy").style = "font-weight: bold";
+
+	document.querySelector(".addRequestFolderUp").style = "display: none";
+	document.querySelector(".addComentFolderBuy").style = "display: flex";
+
+	createShops4();
+})
+
+
+
+//////Up
+let upBtn = document.querySelector(".addRequestBtnUp");
+upBtn.addEventListener("click", createUpRole);
+
+async function createUpRole()
+{
+	let idShopInput = document.querySelector("#NameShopBuyer");
+
+
+	let request = await myContract.methods.createUpRole(idShopInput.value).send({
+		gas: 200000,
+		from: curentAccount,
+	})
+
+	alert("Заявка успешно принята!")
+	idShopInput.value = "";
+}
+
+
+//Down
+let commentBtn = document.querySelector(".addComentFolderBtnBuy");
+commentBtn.addEventListener("click", createCommentBuy)
+
+async function createCommentBuy()
+{
+	let NameShopComent = document.querySelector("#NameShopComentBuyer");
+	let messageComent = document.querySelector("#messageComentBuyer");
+	let Ozenka = document.querySelector("#OzenkaBuyer");
+
+
+	let result = myContract.methods.AddRevie(NameShopComent.value, Ozenka.value, messageComent.value).send({
+		gas: 200000,
+		from: curentAccount,
+	});
+
+	alert("Коментарий добавлен!");
+	NameShopComent.value = "";
+	messageComent.value = "";
+	Ozenka.value = "";
+
+}
+
+
+
+//////////////////////////////////////////SHOP
+document.querySelector("#ListComm").addEventListener("click", async () =>
+{	
+	document.querySelector("#ListComm").style = "font-weight: bold";
+	document.querySelector("#ListWorkers").style = "font-weight: normal";
+
+	document.querySelector(".listCommFolder").style = "display: flex";
+	document.querySelector(".ListWorkersFolder").style = "display: none";
+
+	createShops3();
+
+})
+
+document.querySelector("#ListWorkers").addEventListener("click", async () =>
+{	
+	document.querySelector("#ListComm").style = "font-weight: normal";
+	document.querySelector("#ListWorkers").style = "font-weight: bold";
+
+	document.querySelector(".listCommFolder").style = "display: none";
+	document.querySelector(".ListWorkersFolder").style = "display: flex";
+
+	createShops4();
+})
+
+
+// async function get
